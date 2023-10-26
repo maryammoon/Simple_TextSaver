@@ -24,7 +24,11 @@
         android:id="@+id/register_Fragment"
         android:name="ir.dunijet.textsaver.Register_Fragment"
         android:label="fragment_register_"
-        tools:layout="@layout/fragment_register_" />
+        tools:layout="@layout/fragment_register_" >
+        <action
+            android:id="@+id/action_register_Fragment_to_profile_Fragment"
+            app:destination="@id/profile_Fragment" />
+    </fragment>
     <fragment
         android:id="@+id/home_Fragment"
         android:name="ir.dunijet.textsaver.Home_Fragment"
