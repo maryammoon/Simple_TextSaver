@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "ir.dunijet.textsaver"
-    compileSdk = 33
+    compileSdk = 34
 
     buildFeatures{
         viewBinding = true
@@ -14,7 +14,7 @@ android {
     defaultConfig {
         applicationId = "ir.dunijet.textsaver"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
