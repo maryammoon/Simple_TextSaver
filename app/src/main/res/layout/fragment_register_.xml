@@ -15,13 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <TextView
-            android:textSize="35sp"
-            android:text="register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/buttom_navigation_main"
             app:menu="@menu/bottom_navigation_menu"
@@ -29,6 +22,5 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"/>
     </FrameLayout>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
