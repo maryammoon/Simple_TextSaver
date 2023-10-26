@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/splash_Fragment">
+
+    <fragment
+        android:id="@+id/splash_Fragment"
+        android:name="ir.dunijet.textsaver.Splash_Fragment"
+        android:label="fragment_splash_"
+        tools:layout="@layout/fragment_splash_" >
+        <action
+            android:id="@+id/action_splash_Fragment_to_home_Fragment"
+            app:destination="@id/home_Fragment" />
+        <action
+            android:id="@+id/action_splash_Fragment_to_register_Fragment"
+            app:destination="@id/register_Fragment" />
+        <action
+            android:id="@+id/action_splash_Fragment_to_profile_Fragment"
+            app:destination="@id/profile_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register_Fragment"
+        android:name="ir.dunijet.textsaver.Register_Fragment"
+        android:label="fragment_register_"
+        tools:layout="@layout/fragment_register_" />
+    <fragment
+        android:id="@+id/home_Fragment"
+        android:name="ir.dunijet.textsaver.Home_Fragment"
+        android:label="fragment_home_"
+        tools:layout="@layout/fragment_home_" />
+    <fragment
+        android:id="@+id/profile_Fragment"
+        android:name="ir.dunijet.textsaver.Profile_Fragment"
+        android:label="fragment_profile_"
+        tools:layout="@layout/fragment_profile_" />
+</navigation>
