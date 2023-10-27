@@ -22,7 +22,7 @@ class Splash_Fragment : Fragment() {
         val view = (binding.root)
 
         Handler(Looper.myLooper()!!).postDelayed({
-            findNavController().navigate(R.id.action_splash_Fragment_to_register_Fragment)
+            findNavController().navigate(R.id.action_splash_Fragment_to_container2)
             binding.lottieSplashScreen.playAnimation()
         }, 3000)
         return view

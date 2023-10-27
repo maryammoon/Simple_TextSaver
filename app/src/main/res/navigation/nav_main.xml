@@ -11,14 +11,8 @@
         android:label="fragment_splash_"
         tools:layout="@layout/fragment_splash_" >
         <action
-            android:id="@+id/action_splash_Fragment_to_home_Fragment"
-            app:destination="@id/home_Fragment" />
-        <action
-            android:id="@+id/action_splash_Fragment_to_register_Fragment"
-            app:destination="@id/register_Fragment" />
-        <action
-            android:id="@+id/action_splash_Fragment_to_profile_Fragment"
-            app:destination="@id/profile_Fragment" />
+            android:id="@+id/action_splash_Fragment_to_container2"
+            app:destination="@id/container2" />
     </fragment>
     <fragment
         android:id="@+id/register_Fragment"
@@ -39,4 +33,19 @@
         android:name="ir.dunijet.textsaver.Profile_Fragment"
         android:label="fragment_profile_"
         tools:layout="@layout/fragment_profile_" />
+    <fragment
+        android:id="@+id/container2"
+        android:name="ir.dunijet.textsaver.container"
+        android:label="fragment_container"
+        tools:layout="@layout/fragment_container" >
+        <action
+            android:id="@+id/action_container2_to_register_Fragment"
+            app:destination="@id/register_Fragment" />
+        <action
+            android:id="@+id/action_container2_to_profile_Fragment"
+            app:destination="@id/profile_Fragment" />
+        <action
+            android:id="@+id/action_container2_to_home_Fragment"
+            app:destination="@id/home_Fragment" />
+    </fragment>
 </navigation>
