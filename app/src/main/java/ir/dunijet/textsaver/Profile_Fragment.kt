@@ -1,32 +1,28 @@
 package ir.dunijet.textsaver
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import ir.dunijet.textsaver.databinding.DialogeProfileImgBinding
+import ir.dunijet.textsaver.databinding.FragmentProfileBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Profile_Fragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@Suppress("UNREACHABLE_CODE")
 class Profile_Fragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
+    lateinit var binding :FragmentProfileBinding
+    lateinit var preferences :SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = FragmentProfileBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -34,26 +30,84 @@ class Profile_Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile_, container, false)
+        return (binding.root)
+
+
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Profile_Fragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Profile_Fragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.imgProfile.setOnClickListener(){
+
+            val dialog = AlertDialog.Builder(getActivity()).create()
+
+            val dialogBinding = DialogeProfileImgBinding.inflate(layoutInflater)
+            dialog.setView(dialogBinding.root)
+            dialog.setCancelable(true)
+            dialog.show()
+
+            dialogBinding.imgProfile1.setOnClickListener{
+                dialog.dismiss()
+                binding.imgProfile.setImageResource(R.drawable.img_profile3)
             }
+            dialogBinding.imgProfile2.setOnClickListener{
+                dialog.dismiss()
+                binding.imgProfile.setImageResource(R.drawable.img_profile2)
+            }
+            dialogBinding.imgProfile3.setOnClickListener{
+                dialog.dismiss()
+                binding.imgProfile.setImageResource(R.drawable.img_profile8)
+            }
+            dialogBinding.imgProfile4.setOnClickListener{
+                dialog.dismiss()
+                binding.imgProfile.setImageResource(R.drawable.img_profile9)
+            }
+            dialogBinding.imgProfile5.setOnClickListener{
+                dialog.dismiss()
+                binding.imgProfile.setImageResource(R.drawable.img_profile5)
+            }
+            dialogBinding.imgProfile6.setOnClickListener{
+                dialog.dismiss()
+                binding.imgProfile.setImageResource(R.drawable.img_profile6)
+            }
+                }
+
+
+        preferences = requireActivity().getSharedPreferences("dataa" ,Context.MODE_PRIVATE )
+
+        preferences = requireActivity().getSharedPreferences("data" ,Context.MODE_PRIVATE )
+        val name= preferences.getString("name", "")
+        val email = preferences.getString("email", "")
+        val password = preferences.getString("password", "")
+
+
+        binding.nameProf.text = name
+        binding.emailP.text = email
+
+
+
+
+
+        binding.btnTaidBio.setOnClickListener {
+            val text = binding.editText.text.toString()
+
+                val editor = preferences.edit()
+                editor.putString("text", text)
+                editor.apply()
+
+            val textt = preferences.getString("text", "")
+            binding.editText.setText(textt)
+
+            Toast.makeText(activity, "saved", Toast.LENGTH_SHORT).show()
+
+
     }
-}
+
+
+    }
+        }
+
+
+

@@ -59,4 +59,6 @@ dependencies {
     //splash screen
     implementation("androidx.core:core-splashscreen:1.0.1")
 
+    //sweet alert dialoge
+    implementation ("com.github.f0ris.sweetalert:library:1.6.2")
 }
